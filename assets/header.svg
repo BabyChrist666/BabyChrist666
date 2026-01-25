@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <defs>
+    <!-- Gradient backgrounds -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="50%" style="stop-color:#161b22"/>
+      <stop offset="100%" style="stop-color:#21262d"/>
+    </linearGradient>
+
+    <!-- Glow effects -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Star pattern -->
+    <pattern id="stars" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="20" r="1" fill="#58a6ff" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="50" cy="10" r="0.5" fill="#fff" opacity="0.8">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="80" cy="40" r="1.5" fill="#58a6ff" opacity="0.6">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="30" cy="70" r="0.8" fill="#fff" opacity="0.4">
+        <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="90" cy="80" r="1" fill="#58a6ff" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#skyGradient)"/>
+  <rect width="1200" height="400" fill="url(#stars)"/>
+
+  <!-- Animated Grid Lines (Cyberpunk effect) -->
+  <g stroke="#58a6ff" stroke-width="0.5" opacity="0.2">
+    <line x1="0" y1="350" x2="1200" y2="350"/>
+    <line x1="0" y1="370" x2="1200" y2="370"/>
+    <line x1="0" y1="385" x2="1200" y2="385"/>
+    <line x1="0" y1="395" x2="1200" y2="395"/>
+  </g>
+
+  <!-- UFO 1 - Main UFO -->
+  <g filter="url(#neonGlow)">
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 50,20; 0,0; -30,-10; 0,0" dur="8s" repeatCount="indefinite"/>
+
+    <!-- UFO Body -->
+    <ellipse cx="200" cy="100" rx="60" ry="15" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+    <ellipse cx="200" cy="95" rx="30" ry="20" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+
+    <!-- UFO Dome -->
+    <path d="M170 95 Q200 60 230 95" fill="#0d1117" stroke="#4ecdc4" stroke-width="2"/>
+
+    <!-- UFO Lights -->
+    <circle cx="170" cy="100" r="5" fill="#ff6b6b">
+      <animate attributeName="fill" values="#ff6b6b;#ffe66d;#4ecdc4;#ff6b6b" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="105" r="5" fill="#ffe66d">
+      <animate attributeName="fill" values="#ffe66d;#4ecdc4;#ff6b6b;#ffe66d" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="230" cy="100" r="5" fill="#4ecdc4">
+      <animate attributeName="fill" values="#4ecdc4;#ff6b6b;#ffe66d;#4ecdc4" dur="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Tractor Beam -->
+    <polygon points="180,115 220,115 250,200 150,200" fill="#58a6ff" opacity="0.2">
+      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <!-- UFO 2 - Small UFO -->
+  <g filter="url(#glow)">
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; -80,30; 0,0; 60,-20; 0,0" dur="12s" repeatCount="indefinite"/>
+
+    <ellipse cx="900" cy="80" rx="35" ry="10" fill="#161b22" stroke="#4ecdc4" stroke-width="1.5"/>
+    <path d="M875 80 Q900 55 925 80" fill="#0d1117" stroke="#4ecdc4" stroke-width="1.5"/>
+
+    <circle cx="885" cy="82" r="3" fill="#ff6b6b">
+      <animate attributeName="fill" values="#ff6b6b;#4ecdc4;#ff6b6b" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="915" cy="82" r="3" fill="#4ecdc4">
+      <animate attributeName="fill" values="#4ecdc4;#ff6b6b;#4ecdc4" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Robot 1 - Main Robot -->
+  <g transform="translate(500, 250)" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="translate"
+      values="500,250; 520,248; 500,250; 480,252; 500,250" dur="4s" repeatCount="indefinite" additive="replace"/>
+
+    <!-- Robot Body -->
+    <rect x="-30" y="20" width="60" height="80" rx="5" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+
+    <!-- Robot Head -->
+    <rect x="-25" y="-30" width="50" height="45" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+
+    <!-- Robot Eyes -->
+    <circle cx="-8" cy="-10" r="8" fill="#0d1117" stroke="#ff6b6b" stroke-width="2">
+      <animate attributeName="fill" values="#0d1117;#ff6b6b;#0d1117" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="8" cy="-10" r="8" fill="#0d1117" stroke="#ff6b6b" stroke-width="2">
+      <animate attributeName="fill" values="#0d1117;#ff6b6b;#0d1117" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Robot Eye Pupils -->
+    <circle cx="-8" cy="-10" r="3" fill="#ff6b6b">
+      <animate attributeName="cx" values="-10;-6;-10" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="8" cy="-10" r="3" fill="#ff6b6b">
+      <animate attributeName="cx" values="6;10;6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Robot Antenna -->
+    <line x1="0" y1="-30" x2="0" y2="-50" stroke="#58a6ff" stroke-width="2"/>
+    <circle cx="0" cy="-55" r="5" fill="#4ecdc4">
+      <animate attributeName="fill" values="#4ecdc4;#ffe66d;#4ecdc4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Robot Arms -->
+    <rect x="-50" y="30" width="15" height="40" rx="3" fill="#21262d" stroke="#4ecdc4" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate"
+        values="0 -42 30; 10 -42 30; 0 -42 30; -10 -42 30; 0 -42 30" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="35" y="30" width="15" height="40" rx="3" fill="#21262d" stroke="#4ecdc4" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate"
+        values="0 42 30; -10 42 30; 0 42 30; 10 42 30; 0 42 30" dur="2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Robot Chest Panel -->
+    <rect x="-15" y="35" width="30" height="25" rx="3" fill="#0d1117" stroke="#58a6ff" stroke-width="1"/>
+    <text x="0" y="52" font-family="monospace" font-size="10" fill="#58a6ff" text-anchor="middle">AI</text>
+  </g>
+
+  <!-- Skeleton 1 - Dancing Skeleton -->
+  <g transform="translate(800, 280)" filter="url(#glow)">
+    <!-- Skeleton Head -->
+    <ellipse cx="0" cy="-60" rx="20" ry="25" fill="none" stroke="#c9d1d9" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate"
+        values="-5 0 -60; 5 0 -60; -5 0 -60" dur="1s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Skull Eyes -->
+    <ellipse cx="-7" cy="-65" rx="5" ry="7" fill="#0d1117"/>
+    <ellipse cx="7" cy="-65" rx="5" ry="7" fill="#0d1117"/>
+
+    <!-- Skull Nose -->
+    <polygon points="0,-55 -3,-48 3,-48" fill="#0d1117"/>
+
+    <!-- Skull Teeth -->
+    <rect x="-10" y="-45" width="20" height="8" fill="none" stroke="#c9d1d9" stroke-width="1"/>
+    <line x1="-5" y1="-45" x2="-5" y2="-37" stroke="#c9d1d9" stroke-width="1"/>
+    <line x1="0" y1="-45" x2="0" y2="-37" stroke="#c9d1d9" stroke-width="1"/>
+    <line x1="5" y1="-45" x2="5" y2="-37" stroke="#c9d1d9" stroke-width="1"/>
+
+    <!-- Spine -->
+    <line x1="0" y1="-35" x2="0" y2="20" stroke="#c9d1d9" stroke-width="3"/>
+
+    <!-- Ribs -->
+    <g>
+      <animateTransform attributeName="transform" type="scale"
+        values="1,1; 1.05,1; 1,1" dur="2s" repeatCount="indefinite"/>
+      <path d="M0,-25 Q-20,-20 -25,-15" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+      <path d="M0,-25 Q20,-20 25,-15" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+      <path d="M0,-15 Q-18,-10 -22,-5" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+      <path d="M0,-15 Q18,-10 22,-5" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+      <path d="M0,-5 Q-15,0 -18,5" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+      <path d="M0,-5 Q15,0 18,5" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+    </g>
+
+    <!-- Arms -->
+    <g>
+      <line x1="0" y1="-30" x2="-25" y2="-10" stroke="#c9d1d9" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate"
+          values="0 0 -30; 20 0 -30; 0 0 -30; -20 0 -30; 0 0 -30" dur="1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-25" y1="-10" x2="-35" y2="15" stroke="#c9d1d9" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate"
+          values="0 -25 -10; -15 -25 -10; 0 -25 -10; 15 -25 -10; 0 -25 -10" dur="1s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <g>
+      <line x1="0" y1="-30" x2="25" y2="-10" stroke="#c9d1d9" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate"
+          values="0 0 -30; -20 0 -30; 0 0 -30; 20 0 -30; 0 0 -30" dur="1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="25" y1="-10" x2="35" y2="15" stroke="#c9d1d9" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate"
+          values="0 25 -10; 15 25 -10; 0 25 -10; -15 25 -10; 0 25 -10" dur="1s" repeatCount="indefinite"/>
+      </line>
+    </g>
+
+    <!-- Pelvis -->
+    <ellipse cx="0" cy="25" rx="15" ry="8" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+
+    <!-- Legs -->
+    <line x1="-10" y1="30" x2="-15" y2="70" stroke="#c9d1d9" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate"
+        values="5 -10 30; -5 -10 30; 5 -10 30" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="10" y1="30" x2="15" y2="70" stroke="#c9d1d9" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate"
+        values="-5 10 30; 5 10 30; -5 10 30" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Small Robot 2 -->
+  <g transform="translate(100, 300)">
+    <rect x="-15" y="0" width="30" height="40" rx="5" fill="#161b22" stroke="#4ecdc4" stroke-width="1.5"/>
+    <circle cx="-5" cy="12" r="4" fill="#ff6b6b">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="5" cy="12" r="4" fill="#ff6b6b">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="-10" y="25" width="20" height="10" rx="2" fill="#58a6ff" opacity="0.5"/>
+
+    <animateTransform attributeName="transform" type="translate"
+      values="100,300; 130,300; 100,300; 70,300; 100,300" dur="6s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Floating Code Particles -->
+  <g fill="#58a6ff" font-family="monospace" font-size="12" opacity="0.6">
+    <text x="50" y="150">
+      <animate attributeName="y" values="150;100;150" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="5s" repeatCount="indefinite"/>
+      def AI()
+    </text>
+    <text x="1050" y="180">
+      <animate attributeName="y" values="180;130;180" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="6s" repeatCount="indefinite"/>
+      async
+    </text>
+    <text x="350" y="120">
+      <animate attributeName="y" values="120;80;120" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.3;0.5" dur="4s" repeatCount="indefinite"/>
+      {code}
+    </text>
+    <text x="700" y="160">
+      <animate attributeName="y" values="160;120;160" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5.5s" repeatCount="indefinite"/>
+      neural++
+    </text>
+  </g>
+
+  <!-- Shooting Star -->
+  <line x1="1100" y1="50" x2="1000" y2="100" stroke="#fff" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="2s"/>
+    <animateTransform attributeName="transform" type="translate"
+      values="100,0; -200,100" dur="3s" repeatCount="indefinite" begin="2s"/>
+  </line>
+
+  <!-- Title Text -->
+  <text x="600" y="380" font-family="'Courier New', monospace" font-size="16" fill="#58a6ff" text-anchor="middle" filter="url(#glow)">
+    [ WELCOME TO THE NEURAL NETWORK ]
+  </text>
+</svg>
