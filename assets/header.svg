@@ -1,289 +1,276 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
   <defs>
-    <!-- Blood red gradient backgrounds -->
-    <linearGradient id="hellGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d0000"/>
-      <stop offset="30%" style="stop-color:#1a0000"/>
-      <stop offset="60%" style="stop-color:#2d0000"/>
-      <stop offset="100%" style="stop-color:#450000"/>
+    <!-- Advanced gradient definitions -->
+    <linearGradient id="hellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080000">
+        <animate attributeName="stop-color" values="#080000;#0f0000;#080000" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="30%" style="stop-color:#150000">
+        <animate attributeName="stop-color" values="#150000;#1f0000;#150000" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="60%" style="stop-color:#200000"/>
+      <stop offset="100%" style="stop-color:#300000"/>
     </linearGradient>
 
-    <!-- Blood drip gradient -->
+    <!-- Blood gradient with animation -->
     <linearGradient id="bloodGradient" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#ff0000"/>
-      <stop offset="50%" style="stop-color:#8b0000"/>
+      <stop offset="40%" style="stop-color:#cc0000"/>
+      <stop offset="70%" style="stop-color:#8b0000"/>
       <stop offset="100%" style="stop-color:#4a0000"/>
     </linearGradient>
 
-    <!-- Fire glow -->
-    <filter id="fireGlow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <!-- Inverted cross glow gradient -->
+    <radialGradient id="crossGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff0000;stop-opacity:0.8">
+        <animate attributeName="stop-opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="60%" style="stop-color:#8b0000;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#4a0000;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Title text gradient -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff0000">
+        <animate attributeName="stop-color" values="#ff0000;#ff3300;#ff0000" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#cc0000"/>
+      <stop offset="100%" style="stop-color:#ff0000">
+        <animate attributeName="stop-color" values="#ff0000;#ff3300;#ff0000" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Advanced fire glow filter -->
+    <filter id="fireGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur1"/>
+      <feGaussianBlur stdDeviation="8" result="blur2"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="bloodGlow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="bloodGlowIntense" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#ff0000" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Ember particles -->
-    <pattern id="embers" width="150" height="150" patternUnits="userSpaceOnUse">
-      <circle cx="20" cy="30" r="2" fill="#ff4500" opacity="0.8">
-        <animate attributeName="cy" values="30;0;30" dur="3s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/>
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Particle pattern -->
+    <pattern id="embers" width="200" height="200" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="40" r="2" fill="#ff4500" opacity="0">
+        <animate attributeName="cy" values="200;-20" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.8;0.8;0" dur="4s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="80" cy="50" r="1.5" fill="#ff0000" opacity="0.6">
-        <animate attributeName="cy" values="50;10;50" dur="4s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.6;0;0.6" dur="4s" repeatCount="indefinite"/>
+      <circle cx="80" cy="80" r="1.5" fill="#ff0000" opacity="0">
+        <animate attributeName="cy" values="200;-20" dur="5s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.6;0.6;0" dur="5s" begin="0.5s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="130" cy="40" r="2" fill="#8b0000" opacity="0.7">
-        <animate attributeName="cy" values="40;5;40" dur="3.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.7;0;0.7" dur="3.5s" repeatCount="indefinite"/>
+      <circle cx="150" cy="60" r="2.5" fill="#ff6600" opacity="0">
+        <animate attributeName="cy" values="200;-20" dur="3.5s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.7;0.7;0" dur="3.5s" begin="1s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="50" cy="80" r="1" fill="#ff6347" opacity="0.5">
-        <animate attributeName="cy" values="80;20;80" dur="5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.5;0;0.5" dur="5s" repeatCount="indefinite"/>
+      <circle cx="120" cy="120" r="1" fill="#cc0000" opacity="0">
+        <animate attributeName="cy" values="200;-20" dur="6s" begin="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.5;0.5;0" dur="6s" begin="2s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="110" cy="100" r="1.5" fill="#dc143c" opacity="0.6">
-        <animate attributeName="cy" values="100;30;100" dur="4.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite"/>
+      <circle cx="180" cy="150" r="1.8" fill="#ff3300" opacity="0">
+        <animate attributeName="cy" values="200;-20" dur="4.5s" begin="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.6;0.6;0" dur="4.5s" begin="1.5s" repeatCount="indefinite"/>
       </circle>
     </pattern>
+
+    <!-- Smoke pattern -->
+    <filter id="smoke">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" seed="1">
+        <animate attributeName="seed" values="1;10;1" dur="10s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="30"/>
+    </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="400" fill="url(#hellGradient)"/>
-  <rect width="1200" height="400" fill="url(#embers)" opacity="0.5"/>
 
-  <!-- Blood drips from top -->
-  <g fill="url(#bloodGradient)">
-    <path d="M50,0 L50,60 Q50,80 45,85 Q40,90 50,95 Q60,90 55,85 Q50,80 50,60 Z">
-      <animate attributeName="d" values="M50,0 L50,60 Q50,80 45,85 Q40,90 50,95 Q60,90 55,85 Q50,80 50,60 Z;M50,0 L50,80 Q50,100 45,105 Q40,110 50,115 Q60,110 55,105 Q50,100 50,80 Z;M50,0 L50,60 Q50,80 45,85 Q40,90 50,95 Q60,90 55,85 Q50,80 50,60 Z" dur="4s" repeatCount="indefinite"/>
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05">
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ff0000" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1200" height="400" fill="url(#grid)"/>
+  </g>
+
+  <!-- Rising ember particles -->
+  <rect width="1200" height="400" fill="url(#embers)" opacity="0.6"/>
+
+  <!-- Animated blood drips - more elegant -->
+  <g fill="url(#bloodGradient)" opacity="0.7">
+    <path d="M80,0 L80,0 Q80,30 76,40 Q72,50 80,55 Q88,50 84,40 Q80,30 80,0 Z">
+      <animate attributeName="d"
+        values="M80,0 L80,0 Q80,30 76,40 Q72,50 80,55 Q88,50 84,40 Q80,30 80,0 Z;
+                M80,0 L80,50 Q80,80 76,90 Q72,100 80,105 Q88,100 84,90 Q80,80 80,50 Z;
+                M80,0 L80,0 Q80,30 76,40 Q72,50 80,55 Q88,50 84,40 Q80,30 80,0 Z"
+        dur="6s" repeatCount="indefinite"/>
     </path>
-    <path d="M200,0 L200,40 Q200,55 196,60 Q192,65 200,70 Q208,65 204,60 Q200,55 200,40 Z">
-      <animate attributeName="d" values="M200,0 L200,40 Q200,55 196,60 Q192,65 200,70 Q208,65 204,60 Q200,55 200,40 Z;M200,0 L200,70 Q200,85 196,90 Q192,95 200,100 Q208,95 204,90 Q200,85 200,70 Z;M200,0 L200,40 Q200,55 196,60 Q192,65 200,70 Q208,65 204,60 Q200,55 200,40 Z" dur="5s" repeatCount="indefinite"/>
+    <path d="M300,0 L300,0 Q300,20 297,28 Q294,36 300,40 Q306,36 303,28 Q300,20 300,0 Z">
+      <animate attributeName="d"
+        values="M300,0 L300,0 Q300,20 297,28 Q294,36 300,40 Q306,36 303,28 Q300,20 300,0 Z;
+                M300,0 L300,40 Q300,60 297,68 Q294,76 300,80 Q306,76 303,68 Q300,60 300,40 Z;
+                M300,0 L300,0 Q300,20 297,28 Q294,36 300,40 Q306,36 303,28 Q300,20 300,0 Z"
+        dur="5s" begin="1s" repeatCount="indefinite"/>
     </path>
-    <path d="M400,0 L400,50 Q400,70 395,75 Q390,80 400,85 Q410,80 405,75 Q400,70 400,50 Z">
-      <animate attributeName="d" values="M400,0 L400,50 Q400,70 395,75 Q390,80 400,85 Q410,80 405,75 Q400,70 400,50 Z;M400,0 L400,90 Q400,110 395,115 Q390,120 400,125 Q410,120 405,115 Q400,110 400,90 Z;M400,0 L400,50 Q400,70 395,75 Q390,80 400,85 Q410,80 405,75 Q400,70 400,50 Z" dur="3.5s" repeatCount="indefinite"/>
+    <path d="M550,0 L550,0 Q550,25 546,35 Q542,45 550,50 Q558,45 554,35 Q550,25 550,0 Z">
+      <animate attributeName="d"
+        values="M550,0 L550,0 Q550,25 546,35 Q542,45 550,50 Q558,45 554,35 Q550,25 550,0 Z;
+                M550,0 L550,60 Q550,85 546,95 Q542,105 550,110 Q558,105 554,95 Q550,85 550,60 Z;
+                M550,0 L550,0 Q550,25 546,35 Q542,45 550,50 Q558,45 554,35 Q550,25 550,0 Z"
+        dur="4s" begin="2s" repeatCount="indefinite"/>
     </path>
-    <path d="M700,0 L700,70 Q700,90 695,95 Q690,100 700,105 Q710,100 705,95 Q700,90 700,70 Z">
-      <animate attributeName="d" values="M700,0 L700,70 Q700,90 695,95 Q690,100 700,105 Q710,100 705,95 Q700,90 700,70 Z;M700,0 L700,100 Q700,120 695,125 Q690,130 700,135 Q710,130 705,125 Q700,120 700,100 Z;M700,0 L700,70 Q700,90 695,95 Q690,100 700,105 Q710,100 705,95 Q700,90 700,70 Z" dur="4.5s" repeatCount="indefinite"/>
+    <path d="M850,0 L850,0 Q850,35 845,48 Q840,61 850,68 Q860,61 855,48 Q850,35 850,0 Z">
+      <animate attributeName="d"
+        values="M850,0 L850,0 Q850,35 845,48 Q840,61 850,68 Q860,61 855,48 Q850,35 850,0 Z;
+                M850,0 L850,55 Q850,85 845,98 Q840,111 850,118 Q860,111 855,98 Q850,85 850,55 Z;
+                M850,0 L850,0 Q850,35 845,48 Q840,61 850,68 Q860,61 855,48 Q850,35 850,0 Z"
+        dur="7s" begin="0.5s" repeatCount="indefinite"/>
     </path>
-    <path d="M950,0 L950,55 Q950,75 945,80 Q940,85 950,90 Q960,85 955,80 Q950,75 950,55 Z">
-      <animate attributeName="d" values="M950,0 L950,55 Q950,75 945,80 Q940,85 950,90 Q960,85 955,80 Q950,75 950,55 Z;M950,0 L950,85 Q950,105 945,110 Q940,115 950,120 Q960,115 955,110 Q950,105 950,85 Z;M950,0 L950,55 Q950,75 945,80 Q940,85 950,90 Q960,85 955,80 Q950,75 950,55 Z" dur="3s" repeatCount="indefinite"/>
-    </path>
-    <path d="M1100,0 L1100,45 Q1100,60 1096,65 Q1092,70 1100,75 Q1108,70 1104,65 Q1100,60 1100,45 Z">
-      <animate attributeName="d" values="M1100,0 L1100,45 Q1100,60 1096,65 Q1092,70 1100,75 Q1108,70 1104,65 Q1100,60 1100,45 Z;M1100,0 L1100,75 Q1100,90 1096,95 Q1092,100 1100,105 Q1108,100 1104,95 Q1100,90 1100,75 Z;M1100,0 L1100,45 Q1100,60 1096,65 Q1092,70 1100,75 Q1108,70 1104,65 Q1100,60 1100,45 Z" dur="5.5s" repeatCount="indefinite"/>
+    <path d="M1050,0 L1050,0 Q1050,22 1046,32 Q1042,42 1050,48 Q1058,42 1054,32 Q1050,22 1050,0 Z">
+      <animate attributeName="d"
+        values="M1050,0 L1050,0 Q1050,22 1046,32 Q1042,42 1050,48 Q1058,42 1054,32 Q1050,22 1050,0 Z;
+                M1050,0 L1050,45 Q1050,67 1046,77 Q1042,87 1050,93 Q1058,87 1054,77 Q1050,67 1050,45 Z;
+                M1050,0 L1050,0 Q1050,22 1046,32 Q1042,42 1050,48 Q1058,42 1054,32 Q1050,22 1050,0 Z"
+        dur="5.5s" begin="1.5s" repeatCount="indefinite"/>
     </path>
   </g>
 
-  <!-- Inverted Cross - Main -->
-  <g transform="translate(600, 180)" filter="url(#fireGlow)">
-    <animateTransform attributeName="transform" type="translate" values="600,180;600,175;600,180" dur="3s" repeatCount="indefinite" additive="replace"/>
+  <!-- Main Inverted Cross - Professional and Polished -->
+  <g transform="translate(600, 175)" filter="url(#bloodGlowIntense)">
+    <!-- Glow background -->
+    <ellipse cx="0" cy="15" rx="80" ry="100" fill="url(#crossGlow)" opacity="0.3">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
 
-    <!-- Cross body -->
-    <rect x="-8" y="-80" width="16" height="160" fill="#8b0000" stroke="#ff0000" stroke-width="2"/>
-    <rect x="-50" y="20" width="100" height="16" fill="#8b0000" stroke="#ff0000" stroke-width="2"/>
+    <!-- Cross shadow -->
+    <rect x="-14" y="-85" width="28" height="180" fill="#2a0000" rx="3" transform="translate(3,3)"/>
+    <rect x="-60" y="35" width="120" height="24" fill="#2a0000" rx="3" transform="translate(3,3)"/>
 
-    <!-- Glow effect -->
-    <rect x="-8" y="-80" width="16" height="160" fill="none" stroke="#ff0000" stroke-width="1" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    <!-- Main cross body -->
+    <rect x="-12" y="-85" width="24" height="180" fill="#8b0000" stroke="#ff0000" stroke-width="2" rx="2">
+      <animate attributeName="stroke-opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
     </rect>
+    <rect x="-58" y="35" width="116" height="22" fill="#8b0000" stroke="#ff0000" stroke-width="2" rx="2">
+      <animate attributeName="stroke-opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Cross inner glow lines -->
+    <rect x="-4" y="-75" width="8" height="160" fill="#ff0000" opacity="0.3"/>
+    <rect x="-48" y="42" width="96" height="8" fill="#ff0000" opacity="0.3"/>
+
+    <!-- Floating animation -->
+    <animateTransform attributeName="transform" type="translate" values="600,175;600,168;600,175" dur="4s" repeatCount="indefinite" additive="replace"/>
   </g>
 
-  <!-- Demon 1 - Left side -->
-  <g transform="translate(150, 220)" filter="url(#bloodGlow)">
-    <animateTransform attributeName="transform" type="translate" values="150,220;160,215;150,220;140,225;150,220" dur="5s" repeatCount="indefinite" additive="replace"/>
+  <!-- Title: BABY CHRIST - with inverted cross as T -->
+  <g filter="url(#textGlow)">
+    <!-- B -->
+    <text x="280" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">B</text>
+    <!-- A -->
+    <text x="340" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">A</text>
+    <!-- B -->
+    <text x="405" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">B</text>
+    <!-- Y -->
+    <text x="465" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">Y</text>
 
-    <!-- Demon body -->
-    <ellipse cx="0" cy="40" rx="35" ry="50" fill="#2d0000" stroke="#8b0000" stroke-width="2"/>
+    <!-- Space -->
 
-    <!-- Demon head -->
-    <circle cx="0" cy="-20" r="30" fill="#1a0000" stroke="#8b0000" stroke-width="2"/>
-
-    <!-- Horns -->
-    <path d="M-20,-35 Q-35,-70 -15,-80" fill="none" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
-    <path d="M20,-35 Q35,-70 15,-80" fill="none" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
-
-    <!-- Eyes - Glowing red -->
-    <ellipse cx="-10" cy="-25" rx="8" ry="5" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#ff4500;#ff0000" dur="2s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="10" cy="-25" rx="8" ry="5" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#ff4500;#ff0000" dur="2s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <!-- Eye pupils -->
-    <circle cx="-10" cy="-25" r="3" fill="#0d0000"/>
-    <circle cx="10" cy="-25" r="3" fill="#0d0000"/>
-
-    <!-- Demon mouth -->
-    <path d="M-15,-5 Q0,10 15,-5" fill="none" stroke="#ff0000" stroke-width="2"/>
-
-    <!-- Fangs -->
-    <polygon points="-8,-5 -5,5 -11,5" fill="#ffffff"/>
-    <polygon points="8,-5 11,5 5,5" fill="#ffffff"/>
-
-    <!-- Wings -->
-    <path d="M-35,20 Q-80,-20 -90,40 Q-70,30 -50,50 Q-60,20 -35,20" fill="#1a0000" stroke="#6b0000" stroke-width="1">
-      <animateTransform attributeName="transform" type="rotate" values="0 -35 20;-10 -35 20;0 -35 20" dur="2s" repeatCount="indefinite"/>
-    </path>
-    <path d="M35,20 Q80,-20 90,40 Q70,30 50,50 Q60,20 35,20" fill="#1a0000" stroke="#6b0000" stroke-width="1">
-      <animateTransform attributeName="transform" type="rotate" values="0 35 20;10 35 20;0 35 20" dur="2s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Tail -->
-    <path d="M0,90 Q30,120 10,140 Q20,130 5,145" fill="none" stroke="#8b0000" stroke-width="4" stroke-linecap="round">
-      <animate attributeName="d" values="M0,90 Q30,120 10,140 Q20,130 5,145;M0,90 Q-20,120 -5,140 Q-15,130 0,145;M0,90 Q30,120 10,140 Q20,130 5,145" dur="3s" repeatCount="indefinite"/>
-    </path>
-    <!-- Tail spike -->
-    <polygon points="5,145 15,155 -5,155" fill="#ff0000">
-      <animateTransform attributeName="transform" type="translate" values="0,0;-10,0;0,0" dur="3s" repeatCount="indefinite"/>
-    </polygon>
+    <!-- C -->
+    <text x="680" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">C</text>
+    <!-- H -->
+    <text x="745" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">H</text>
+    <!-- R -->
+    <text x="815" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">R</text>
+    <!-- I -->
+    <text x="875" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">I</text>
+    <!-- S -->
+    <text x="905" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">S</text>
+    <!-- (T is the inverted cross in center) -->
   </g>
 
-  <!-- Demon 2 - Right side (different pose) -->
-  <g transform="translate(1050, 200)" filter="url(#bloodGlow)">
-    <animateTransform attributeName="transform" type="translate" values="1050,200;1040,195;1050,200;1060,205;1050,200" dur="4s" repeatCount="indefinite" additive="replace"/>
+  <!-- Subtitle -->
+  <text x="600" y="260" font-family="Georgia, serif" font-size="18" fill="#8b0000" text-anchor="middle" letter-spacing="8" filter="url(#textGlow)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    DARK ARCHITECT OF ARTIFICIAL INTELLIGENCE
+  </text>
 
-    <!-- Demon body -->
-    <ellipse cx="0" cy="50" rx="30" ry="45" fill="#2d0000" stroke="#8b0000" stroke-width="2"/>
-
-    <!-- Demon head -->
-    <circle cx="0" cy="-10" r="28" fill="#1a0000" stroke="#8b0000" stroke-width="2"/>
-
-    <!-- Horns - curved differently -->
-    <path d="M-18,-25 Q-40,-50 -50,-30" fill="none" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
-    <path d="M18,-25 Q40,-50 50,-30" fill="none" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
-
-    <!-- Eyes -->
-    <ellipse cx="-8" cy="-15" rx="7" ry="10" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#dc143c;#ff0000" dur="1.5s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="8" cy="-15" rx="7" ry="10" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#dc143c;#ff0000" dur="1.5s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="-8" cy="-15" rx="3" ry="5" fill="#0d0000"/>
-    <ellipse cx="8" cy="-15" rx="3" ry="5" fill="#0d0000"/>
-
-    <!-- Evil grin -->
-    <path d="M-12,5 Q0,20 12,5" fill="none" stroke="#ff0000" stroke-width="2"/>
-    <polygon points="-6,8 -4,15 -8,15" fill="#ffffff"/>
-    <polygon points="6,8 8,15 4,15" fill="#ffffff"/>
-
-    <!-- Wings -->
-    <path d="M-30,30 Q-70,0 -75,50 Q-55,40 -40,60 Q-50,30 -30,30" fill="#1a0000" stroke="#6b0000" stroke-width="1">
-      <animateTransform attributeName="transform" type="rotate" values="0 -30 30;-8 -30 30;0 -30 30" dur="2.5s" repeatCount="indefinite"/>
-    </path>
-    <path d="M30,30 Q70,0 75,50 Q55,40 40,60 Q50,30 30,30" fill="#1a0000" stroke="#6b0000" stroke-width="1">
-      <animateTransform attributeName="transform" type="rotate" values="0 30 30;8 30 30;0 30 30" dur="2.5s" repeatCount="indefinite"/>
-    </path>
+  <!-- Decorative pentagrams - Left -->
+  <g transform="translate(100, 200)" opacity="0.4" filter="url(#fireGlow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 100 200;360 100 200" dur="30s" repeatCount="indefinite" additive="replace"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#ff0000" stroke-width="1"/>
+    <polygon points="0,-32 8,26 -32,-10 32,-10 -8,26" fill="none" stroke="#ff0000" stroke-width="1"/>
   </g>
 
-  <!-- Skeleton - Dancing -->
-  <g transform="translate(350, 280)" filter="url(#bloodGlow)">
-    <!-- Skull -->
-    <ellipse cx="0" cy="-70" rx="22" ry="28" fill="#1a0000" stroke="#8b0000" stroke-width="2">
-      <animateTransform attributeName="transform" type="rotate" values="-5 0 -70;5 0 -70;-5 0 -70" dur="1s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <!-- Skull eye sockets -->
-    <ellipse cx="-8" cy="-75" rx="6" ry="8" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#0d0000;#ff0000" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="8" cy="-75" rx="6" ry="8" fill="#ff0000">
-      <animate attributeName="fill" values="#ff0000;#0d0000;#ff0000" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <!-- Nose hole -->
-    <polygon points="0,-62 -4,-55 4,-55" fill="#0d0000"/>
-
-    <!-- Teeth -->
-    <rect x="-12" y="-52" width="24" height="10" fill="#1a0000" stroke="#8b0000" stroke-width="1"/>
-    <line x1="-8" y1="-52" x2="-8" y2="-42" stroke="#0d0000" stroke-width="1"/>
-    <line x1="-4" y1="-52" x2="-4" y2="-42" stroke="#0d0000" stroke-width="1"/>
-    <line x1="0" y1="-52" x2="0" y2="-42" stroke="#0d0000" stroke-width="1"/>
-    <line x1="4" y1="-52" x2="4" y2="-42" stroke="#0d0000" stroke-width="1"/>
-    <line x1="8" y1="-52" x2="8" y2="-42" stroke="#0d0000" stroke-width="1"/>
-
-    <!-- Spine -->
-    <line x1="0" y1="-40" x2="0" y2="20" stroke="#8b0000" stroke-width="4"/>
-
-    <!-- Ribs -->
-    <g>
-      <animateTransform attributeName="transform" type="scale" values="1,1;1.03,1;1,1" dur="2s" repeatCount="indefinite"/>
-      <path d="M0,-30 Q-22,-25 -28,-18" fill="none" stroke="#8b0000" stroke-width="3"/>
-      <path d="M0,-30 Q22,-25 28,-18" fill="none" stroke="#8b0000" stroke-width="3"/>
-      <path d="M0,-18 Q-20,-13 -25,-6" fill="none" stroke="#8b0000" stroke-width="3"/>
-      <path d="M0,-18 Q20,-13 25,-6" fill="none" stroke="#8b0000" stroke-width="3"/>
-      <path d="M0,-6 Q-18,-1 -22,6" fill="none" stroke="#8b0000" stroke-width="3"/>
-      <path d="M0,-6 Q18,-1 22,6" fill="none" stroke="#8b0000" stroke-width="3"/>
-    </g>
-
-    <!-- Arms dancing -->
-    <g>
-      <line x1="0" y1="-35" x2="-30" y2="-15" stroke="#8b0000" stroke-width="3">
-        <animateTransform attributeName="transform" type="rotate" values="0 0 -35;30 0 -35;0 0 -35;-30 0 -35;0 0 -35" dur="1s" repeatCount="indefinite"/>
-      </line>
-    </g>
-    <g>
-      <line x1="0" y1="-35" x2="30" y2="-15" stroke="#8b0000" stroke-width="3">
-        <animateTransform attributeName="transform" type="rotate" values="0 0 -35;-30 0 -35;0 0 -35;30 0 -35;0 0 -35" dur="1s" repeatCount="indefinite"/>
-      </line>
-    </g>
-
-    <!-- Pelvis -->
-    <ellipse cx="0" cy="25" rx="18" ry="10" fill="none" stroke="#8b0000" stroke-width="3"/>
-
-    <!-- Legs -->
-    <line x1="-12" y1="32" x2="-18" y2="80" stroke="#8b0000" stroke-width="3">
-      <animateTransform attributeName="transform" type="rotate" values="10 -12 32;-10 -12 32;10 -12 32" dur="0.5s" repeatCount="indefinite"/>
-    </line>
-    <line x1="12" y1="32" x2="18" y2="80" stroke="#8b0000" stroke-width="3">
-      <animateTransform attributeName="transform" type="rotate" values="-10 12 32;10 12 32;-10 12 32" dur="0.5s" repeatCount="indefinite"/>
-    </line>
+  <!-- Decorative pentagrams - Right -->
+  <g transform="translate(1100, 200)" opacity="0.4" filter="url(#fireGlow)">
+    <animateTransform attributeName="transform" type="rotate" values="360 1100 200;0 1100 200" dur="30s" repeatCount="indefinite" additive="replace"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#ff0000" stroke-width="1"/>
+    <polygon points="0,-32 8,26 -32,-10 32,-10 -8,26" fill="none" stroke="#ff0000" stroke-width="1"/>
   </g>
 
-  <!-- Pentagram -->
-  <g transform="translate(850, 300)" filter="url(#fireGlow)">
-    <animateTransform attributeName="transform" type="rotate" values="0 850 300;360 850 300" dur="20s" repeatCount="indefinite" additive="replace"/>
-
-    <!-- Outer circle -->
-    <circle cx="0" cy="0" r="50" fill="none" stroke="#ff0000" stroke-width="2" opacity="0.7"/>
-
-    <!-- Pentagram star -->
-    <polygon points="0,-45 12,35 -48,-15 48,-15 -12,35" fill="none" stroke="#ff0000" stroke-width="2">
-      <animate attributeName="stroke" values="#ff0000;#ff4500;#8b0000;#ff0000" dur="3s" repeatCount="indefinite"/>
-    </polygon>
-  </g>
-
-  <!-- Floating 666 -->
-  <g filter="url(#fireGlow)">
-    <text x="600" y="350" font-family="'Times New Roman', serif" font-size="40" fill="#ff0000" text-anchor="middle" font-weight="bold">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-      6 6 6
+  <!-- 666 watermark -->
+  <g opacity="0.15">
+    <text x="600" y="350" font-family="Georgia, serif" font-size="80" fill="#ff0000" text-anchor="middle" font-weight="bold" letter-spacing="30">
+      <animate attributeName="opacity" values="0.1;0.2;0.1" dur="4s" repeatCount="indefinite"/>
+      666
     </text>
   </g>
 
-  <!-- Fire at bottom -->
-  <g>
-    <path d="M0,400 Q50,350 100,400 Q150,320 200,400 Q250,340 300,400 Q350,360 400,400 Q450,330 500,400 Q550,350 600,400 Q650,340 700,400 Q750,360 800,400 Q850,330 900,400 Q950,350 1000,400 Q1050,340 1100,400 Q1150,360 1200,400 L1200,400 L0,400 Z" fill="#ff4500" opacity="0.3">
-      <animate attributeName="d" values="M0,400 Q50,350 100,400 Q150,320 200,400 Q250,340 300,400 Q350,360 400,400 Q450,330 500,400 Q550,350 600,400 Q650,340 700,400 Q750,360 800,400 Q850,330 900,400 Q950,350 1000,400 Q1050,340 1100,400 Q1150,360 1200,400 L1200,400 L0,400 Z;M0,400 Q50,360 100,400 Q150,340 200,400 Q250,320 300,400 Q350,350 400,400 Q450,340 500,400 Q550,360 600,400 Q650,320 700,400 Q750,340 800,400 Q850,360 900,400 Q950,330 1000,400 Q1050,350 1100,400 Q1150,340 1200,400 L1200,400 L0,400 Z;M0,400 Q50,350 100,400 Q150,320 200,400 Q250,340 300,400 Q350,360 400,400 Q450,330 500,400 Q550,350 600,400 Q650,340 700,400 Q750,360 800,400 Q850,330 900,400 Q950,350 1000,400 Q1050,340 1100,400 Q1150,360 1200,400 L1200,400 L0,400 Z" dur="2s" repeatCount="indefinite"/>
+  <!-- Bottom flame effect -->
+  <g opacity="0.4">
+    <path fill="#ff4500">
+      <animate attributeName="d"
+        values="M0,400 Q30,380 60,400 Q90,360 120,400 Q150,370 180,400 Q210,350 240,400 Q270,375 300,400 Q330,355 360,400 Q390,380 420,400 Q450,360 480,400 Q510,375 540,400 Q570,355 600,400 Q630,380 660,400 Q690,360 720,400 Q750,375 780,400 Q810,355 840,400 Q870,380 900,400 Q930,360 960,400 Q990,375 1020,400 Q1050,355 1080,400 Q1110,380 1140,400 Q1170,360 1200,400 L1200,400 L0,400 Z;
+                M0,400 Q30,370 60,400 Q90,380 120,400 Q150,355 180,400 Q210,375 240,400 Q270,360 300,400 Q330,380 360,400 Q390,355 420,400 Q450,375 480,400 Q510,360 540,400 Q570,380 600,400 Q630,355 660,400 Q690,375 720,400 Q750,360 780,400 Q810,380 840,400 Q870,355 900,400 Q930,375 960,400 Q990,360 1020,400 Q1050,380 1080,400 Q1110,355 1140,400 Q1170,375 1200,400 L1200,400 L0,400 Z;
+                M0,400 Q30,380 60,400 Q90,360 120,400 Q150,370 180,400 Q210,350 240,400 Q270,375 300,400 Q330,355 360,400 Q390,380 420,400 Q450,360 480,400 Q510,375 540,400 Q570,355 600,400 Q630,380 660,400 Q690,360 720,400 Q750,375 780,400 Q810,355 840,400 Q870,380 900,400 Q930,360 960,400 Q990,375 1020,400 Q1050,355 1080,400 Q1110,380 1140,400 Q1170,360 1200,400 L1200,400 L0,400 Z"
+        dur="2s" repeatCount="indefinite"/>
     </path>
-    <path d="M0,400 Q50,370 100,400 Q150,350 200,400 Q250,360 300,400 Q350,380 400,400 Q450,350 500,400 Q550,370 600,400 Q650,360 700,400 Q750,380 800,400 Q850,350 900,400 Q950,370 1000,400 Q1050,360 1100,400 Q1150,380 1200,400 L1200,400 L0,400 Z" fill="#ff0000" opacity="0.2">
-      <animate attributeName="d" values="M0,400 Q50,370 100,400 Q150,350 200,400 Q250,360 300,400 Q350,380 400,400 Q450,350 500,400 Q550,370 600,400 Q650,360 700,400 Q750,380 800,400 Q850,350 900,400 Q950,370 1000,400 Q1050,360 1100,400 Q1150,380 1200,400 L1200,400 L0,400 Z;M0,400 Q50,380 100,400 Q150,360 200,400 Q250,350 300,400 Q350,370 400,400 Q450,360 500,400 Q550,380 600,400 Q650,350 700,400 Q750,360 800,400 Q850,380 900,400 Q950,350 1000,400 Q1050,370 1100,400 Q1150,360 1200,400 L1200,400 L0,400 Z;M0,400 Q50,370 100,400 Q150,350 200,400 Q250,360 300,400 Q350,380 400,400 Q450,350 500,400 Q550,370 600,400 Q650,360 700,400 Q750,380 800,400 Q850,350 900,400 Q950,370 1000,400 Q1050,360 1100,400 Q1150,380 1200,400 L1200,400 L0,400 Z" dur="1.5s" repeatCount="indefinite"/>
+    <path fill="#ff0000" opacity="0.5">
+      <animate attributeName="d"
+        values="M0,400 Q40,385 80,400 Q120,375 160,400 Q200,390 240,400 Q280,370 320,400 Q360,385 400,400 Q440,375 480,400 Q520,390 560,400 Q600,370 640,400 Q680,385 720,400 Q760,375 800,400 Q840,390 880,400 Q920,370 960,400 Q1000,385 1040,400 Q1080,375 1120,400 Q1160,390 1200,400 L1200,400 L0,400 Z;
+                M0,400 Q40,375 80,400 Q120,390 160,400 Q200,370 240,400 Q280,385 320,400 Q360,375 400,400 Q440,390 480,400 Q520,370 560,400 Q600,385 640,400 Q680,375 720,400 Q760,390 800,400 Q840,370 880,400 Q920,385 960,400 Q1000,375 1040,400 Q1080,390 1120,400 Q1160,370 1200,400 L1200,400 L0,400 Z;
+                M0,400 Q40,385 80,400 Q120,375 160,400 Q200,390 240,400 Q280,370 320,400 Q360,385 400,400 Q440,375 480,400 Q520,390 560,400 Q600,370 640,400 Q680,385 720,400 Q760,375 800,400 Q840,390 880,400 Q920,370 960,400 Q1000,385 1040,400 Q1080,375 1120,400 Q1160,390 1200,400 L1200,400 L0,400 Z"
+        dur="1.5s" repeatCount="indefinite"/>
     </path>
   </g>
 
-  <!-- Title Text -->
-  <text x="600" y="385" font-family="'Times New Roman', serif" font-size="14" fill="#8b0000" text-anchor="middle" filter="url(#bloodGlow)">
-    [ WELCOME TO THE NINTH CIRCLE ]
-  </text>
+  <!-- Corner decorations -->
+  <g opacity="0.3">
+    <!-- Top left corner -->
+    <path d="M0,0 L60,0 L60,5 L5,5 L5,60 L0,60 Z" fill="#8b0000"/>
+    <path d="M0,0 L40,0 L40,3 L3,3 L3,40 L0,40 Z" fill="#ff0000"/>
+
+    <!-- Top right corner -->
+    <path d="M1200,0 L1140,0 L1140,5 L1195,5 L1195,60 L1200,60 Z" fill="#8b0000"/>
+    <path d="M1200,0 L1160,0 L1160,3 L1197,3 L1197,40 L1200,40 Z" fill="#ff0000"/>
+
+    <!-- Bottom left corner -->
+    <path d="M0,400 L60,400 L60,395 L5,395 L5,340 L0,340 Z" fill="#8b0000"/>
+    <path d="M0,400 L40,400 L40,397 L3,397 L3,360 L0,360 Z" fill="#ff0000"/>
+
+    <!-- Bottom right corner -->
+    <path d="M1200,400 L1140,400 L1140,395 L1195,395 L1195,340 L1200,340 Z" fill="#8b0000"/>
+    <path d="M1200,400 L1160,400 L1160,397 L1197,397 L1197,360 L1200,360 Z" fill="#ff0000"/>
+  </g>
 </svg>
