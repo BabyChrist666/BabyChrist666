@@ -108,16 +108,16 @@ Every project is built to be deployed, not demoed.
 
 </div>
 
-| Project | What It Does | Tech | Link |
-|:--------|:-------------|:-----|:-----|
-| **Enterprise AI Agent Platform** | Multi-domain agent system with specialized agents for finance, legal, and healthcare. Intelligent routing, parallel multi-agent execution, and RAG-powered knowledge retrieval. | Python, Cohere, FastAPI, Next.js | [Repo](https://github.com/BabyChrist666/enterprise-ai-agent-platform) |
-| **AI Decision Firewall** | Runtime governance layer that intercepts AI outputs before they become actions. Evidence validation, confidence scoring, risk assessment, and policy enforcement for regulated industries. | Python, FastAPI, Pydantic | [Repo](https://github.com/BabyChrist666/ai-decision-firewall) |
-| **Multi-Tool AI Agent** | Autonomous agent with web search, code execution, math, and web scraping. Multi-turn conversation with automatic tool selection and orchestration. | Python, Cohere Command R+, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multi-tool-agent) |
-| **Multilingual RAG System** | Retrieval-augmented generation supporting 100+ languages. Cohere Embed v3 embeddings, semantic reranking, cross-lingual retrieval, and citation generation. | Python, Cohere, ChromaDB, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multilingual-rag) |
-| **MCP Document Server** | Model Context Protocol server for document analysis — parsing, chunking, semantic search, and summarization. PDF, DOCX, TXT support with Cohere embeddings. | Python, MCP, Cohere Embed v3 | [Repo](https://github.com/BabyChrist666/mcp-document-server) |
-| **LLM Eval Benchmark** | Automated LLM evaluation framework with multi-model comparison, accuracy/coherence/safety metrics, and statistical significance testing. | Python, asyncio, scipy | [Repo](https://github.com/BabyChrist666/llm-eval-benchmark) |
-| **Prompt Toolkit** | Structured prompt engineering library — templating, chain-of-thought scaffolding, few-shot example management, A/B optimization, and version control. | Python, Pydantic | [Repo](https://github.com/BabyChrist666/prompt-toolkit) |
-| **Agent Memory** | Persistent memory system for AI agents — conversation history, working memory with priority eviction, context window management, and auto-summarization. | Python, JSON persistence | [Repo](https://github.com/BabyChrist666/agent-memory) |
+| Project | What It Does | Tech | Links |
+|:--------|:-------------|:-----|:------|
+| **Enterprise AI Agent Platform** | Multi-domain agent system with specialized agents for finance, legal, and healthcare. Intelligent routing, parallel multi-agent execution, and RAG-powered knowledge retrieval. | Python, Cohere, FastAPI, Next.js | [Repo](https://github.com/BabyChrist666/enterprise-ai-agent-platform) · [Live](https://babychrist666.github.io/enterprise-ai-agent-platform/) |
+| **AI Decision Firewall** | Runtime governance layer that intercepts AI outputs before they become actions. Evidence validation, confidence scoring, risk assessment, and policy enforcement for regulated industries. | Python, FastAPI, Pydantic | [Repo](https://github.com/BabyChrist666/ai-decision-firewall) · [Live](https://babychrist666.github.io/ai-decision-firewall/) |
+| **Multi-Tool AI Agent** | Autonomous agent with web search, code execution, math, and web scraping. Multi-turn conversation with automatic tool selection and orchestration. | Python, Cohere Command R+, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multi-tool-agent) · [Live](https://babychrist666.github.io/cohere-multi-tool-agent/) |
+| **Multilingual RAG System** | Retrieval-augmented generation supporting 100+ languages. Cohere Embed v3 embeddings, semantic reranking, cross-lingual retrieval, and citation generation. | Python, Cohere, ChromaDB, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multilingual-rag) · [Live](https://babychrist666.github.io/cohere-multilingual-rag/) |
+| **MCP Document Server** | Model Context Protocol server for document analysis — parsing, chunking, semantic search, and summarization. PDF, DOCX, TXT support with Cohere embeddings. | Python, MCP, Cohere Embed v3 | [Repo](https://github.com/BabyChrist666/mcp-document-server) · [Live](https://babychrist666.github.io/mcp-document-server/) |
+| **LLM Eval Benchmark** | Automated LLM evaluation framework with multi-model comparison, accuracy/coherence/safety metrics, and statistical significance testing. | Python, asyncio, scipy | [Repo](https://github.com/BabyChrist666/llm-eval-benchmark) · [Live](https://babychrist666.github.io/llm-eval-benchmark/) |
+| **Prompt Toolkit** | Structured prompt engineering library — templating, chain-of-thought scaffolding, few-shot example management, A/B optimization, and version control. | Python, Pydantic | [Repo](https://github.com/BabyChrist666/prompt-toolkit) · [Live](https://babychrist666.github.io/prompt-toolkit/) |
+| **Agent Memory** | Persistent memory system for AI agents — conversation history, working memory with priority eviction, context window management, and auto-summarization. | Python, JSON persistence | [Repo](https://github.com/BabyChrist666/agent-memory) · [Live](https://babychrist666.github.io/agent-memory/) |
 
 ---
 
