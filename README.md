@@ -39,7 +39,9 @@ focus:
 currently_building:
   - Enterprise AI Agent Platform (Finance, Legal, Healthcare)
   - AI Decision Firewall (Runtime Governance)
-  - Multilingual RAG System (100+ languages)
+  - MCP Document Analysis Server
+  - LLM Evaluation Benchmark Framework
+  - Agent Memory & Persistence System
 
 approach:
   - Production-first engineering
@@ -112,6 +114,10 @@ Every project is built to be deployed, not demoed.
 | **AI Decision Firewall** | Runtime governance layer that intercepts AI outputs before they become actions. Evidence validation, confidence scoring, risk assessment, and policy enforcement for regulated industries. | Python, FastAPI, Pydantic | [Repo](https://github.com/BabyChrist666/ai-decision-firewall) |
 | **Multi-Tool AI Agent** | Autonomous agent with web search, code execution, math, and web scraping. Multi-turn conversation with automatic tool selection and orchestration. | Python, Cohere Command R+, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multi-tool-agent) |
 | **Multilingual RAG System** | Retrieval-augmented generation supporting 100+ languages. Cohere Embed v3 embeddings, semantic reranking, cross-lingual retrieval, and citation generation. | Python, Cohere, ChromaDB, FastAPI | [Repo](https://github.com/BabyChrist666/cohere-multilingual-rag) |
+| **MCP Document Server** | Model Context Protocol server for document analysis — parsing, chunking, semantic search, and summarization. PDF, DOCX, TXT support with Cohere embeddings. | Python, MCP, Cohere Embed v3 | [Repo](https://github.com/BabyChrist666/mcp-document-server) |
+| **LLM Eval Benchmark** | Automated LLM evaluation framework with multi-model comparison, accuracy/coherence/safety metrics, and statistical significance testing. | Python, asyncio, scipy | [Repo](https://github.com/BabyChrist666/llm-eval-benchmark) |
+| **Prompt Toolkit** | Structured prompt engineering library — templating, chain-of-thought scaffolding, few-shot example management, A/B optimization, and version control. | Python, Pydantic | [Repo](https://github.com/BabyChrist666/prompt-toolkit) |
+| **Agent Memory** | Persistent memory system for AI agents — conversation history, working memory with priority eviction, context window management, and auto-summarization. | Python, JSON persistence | [Repo](https://github.com/BabyChrist666/agent-memory) |
 
 ---
 
