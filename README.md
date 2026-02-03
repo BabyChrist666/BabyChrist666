@@ -40,8 +40,8 @@ focus:
 currently_building:
   - Transformer from Scratch (NumPy, interpretability probes)
   - Sparse Autoencoder (feature extraction, Anthropic-style)
-  - Enterprise AI Agent Platform
-  - MCP Document Analysis Server
+  - Circuit Finder (automated circuit discovery)
+  - Logit Lens & Tuned Lens (per-layer prediction analysis)
 
 approach:
   - Understand AI from the inside out
@@ -120,6 +120,8 @@ Every project is built to be deployed, not demoed.
 | **Agent Memory** | Persistent memory system for AI agents — conversation history, working memory with priority eviction, context window management, and auto-summarization. | Python, JSON persistence | [Repo](https://github.com/BabyChrist666/agent-memory) · [Live](https://babychrist666.github.io/agent-memory/) |
 | **Transformer Lab** | Complete GPT-architecture transformer from scratch in pure NumPy. Attention probes, induction head detection, logit attribution, activation caching. Trained on Shakespeare with real interpretability results. | Python, NumPy | [Repo](https://github.com/BabyChrist666/transformer-lab) |
 | **Sparse Autoencoder** | Extract interpretable features from neural network activations. Overcomplete dictionary learning with L1 sparsity, dead feature resampling, feature clustering. Based on Anthropic's Scaling Monosemanticity. | Python, NumPy | [Repo](https://github.com/BabyChrist666/sparse-autoencoder) |
+| **Circuit Finder** | Automated circuit discovery for mechanistic interpretability. Activation patching, ablation studies (zero/mean/resample/noise), graph-based circuit finding with IOI-style head role classification. | Python, NumPy | [Repo](https://github.com/BabyChrist666/circuit-finder) |
+| **Logit Lens** | See what a transformer predicts at every layer. Standard logit lens + tuned lens (learned per-layer probes). Convergence maps, entropy maps, layer attribution, token difficulty analysis. | Python, NumPy | [Repo](https://github.com/BabyChrist666/logit-lens) |
 
 ---
 
