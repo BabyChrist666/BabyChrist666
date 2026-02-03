@@ -28,25 +28,25 @@
 ### About Me
 
 ```yaml
-role: "AI Engineer"
+role: "AI Engineer & Interpretability Researcher"
 location: "Toronto, Canada"
 focus:
+  - Mechanistic Interpretability
+  - Transformer Internals & Feature Extraction
+  - Sparse Autoencoders
   - Multi-Agent Orchestration
-  - RAG Systems (Retrieval-Augmented Generation)
-  - Enterprise AI Deployment
-  - LLM Integration & Evaluation
+  - RAG Systems & Enterprise AI
 
 currently_building:
-  - Enterprise AI Agent Platform (Finance, Legal, Healthcare)
-  - AI Decision Firewall (Runtime Governance)
+  - Transformer from Scratch (NumPy, interpretability probes)
+  - Sparse Autoencoder (feature extraction, Anthropic-style)
+  - Enterprise AI Agent Platform
   - MCP Document Analysis Server
-  - LLM Evaluation Benchmark Framework
-  - Agent Memory & Persistence System
 
 approach:
-  - Production-first engineering
-  - Scalable async architecture
-  - Comprehensive evaluation & testing
+  - Understand AI from the inside out
+  - Build everything from scratch to learn deeply
+  - Production-grade code with comprehensive testing
 ```
 
 </td>
@@ -118,6 +118,8 @@ Every project is built to be deployed, not demoed.
 | **LLM Eval Benchmark** | Automated LLM evaluation framework with multi-model comparison, accuracy/coherence/safety metrics, and statistical significance testing. | Python, asyncio, scipy | [Repo](https://github.com/BabyChrist666/llm-eval-benchmark) · [Live](https://babychrist666.github.io/llm-eval-benchmark/) |
 | **Prompt Toolkit** | Structured prompt engineering library — templating, chain-of-thought scaffolding, few-shot example management, A/B optimization, and version control. | Python, Pydantic | [Repo](https://github.com/BabyChrist666/prompt-toolkit) · [Live](https://babychrist666.github.io/prompt-toolkit/) |
 | **Agent Memory** | Persistent memory system for AI agents — conversation history, working memory with priority eviction, context window management, and auto-summarization. | Python, JSON persistence | [Repo](https://github.com/BabyChrist666/agent-memory) · [Live](https://babychrist666.github.io/agent-memory/) |
+| **Transformer Lab** | Complete GPT-architecture transformer from scratch in pure NumPy. Attention probes, induction head detection, logit attribution, activation caching. Trained on Shakespeare with real interpretability results. | Python, NumPy | [Repo](https://github.com/BabyChrist666/transformer-lab) |
+| **Sparse Autoencoder** | Extract interpretable features from neural network activations. Overcomplete dictionary learning with L1 sparsity, dead feature resampling, feature clustering. Based on Anthropic's Scaling Monosemanticity. | Python, NumPy | [Repo](https://github.com/BabyChrist666/sparse-autoencoder) |
 
 ---
 
@@ -151,7 +153,7 @@ Every project is built to be deployed, not demoed.
 
 <br/><br/>
 
-**Open to Applied AI Engineer and Forward Deployed Engineer roles.**
+**Open to Interpretability Research Engineer, Applied AI Engineer, and Forward Deployed Engineer roles.**
 
 **Toronto, Canada | Open to relocation**
 
